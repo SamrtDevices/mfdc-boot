@@ -7,7 +7,7 @@
     <groupId>com.xhtw.boot</groupId>
     <artifactId>mfdc-boot</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>mfdc-boot-start-web</module>
         <module>mfdc-boot-start-core</module>
@@ -15,5 +15,64 @@
         <module>mfdc-boot-start-secure</module>
     </modules>
 
+    <properties>
+        <cosmo.boot.version.c>1.0.0-SNAPSHOT</cosmo.boot.version.c>
+        <encoding>UTF-8</encoding>
+        <encoding.reporting>UTF-8</encoding.reporting>
+        <java.version>1.8</java.version>
+        <spring.boot.version>1.4.2.RELEASE</spring.boot.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://118.25.35.49:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Nexus Snapshot Repository</name>
+            <url>http://118.25.35.49:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.cosmo.boot</groupId>
+                <artifactId>cosmo-boot-starter-test</artifactId>
+                <version>${cosmo.boot.version.c}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.cosmo.boot</groupId>
+                <artifactId>cosmo-boot-starter-core</artifactId>
+                <version>${cosmo.boot.version.c}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.cosmo.boot</groupId>
+                <artifactId>cosmo-boot-starter-secure</artifactId>
+                <version>${cosmo.boot.version.c}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.cosmo.boot</groupId>
+                <artifactId>cosmo-boot-starter-web</artifactId>
+                <version>${cosmo.boot.version.c}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
